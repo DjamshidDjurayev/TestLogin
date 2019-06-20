@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+      <android.support.design.widget.AppBarLayout
+          android:id="@+id/appbar"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/LoginToolbarStyle"
+        />
+      </android.support.design.widget.AppBarLayout>
+
+      <android.support.design.widget.TextInputLayout
+          android:id="@+id/name_input_layout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="@dimen/content_side_padding"
+          android:layout_marginRight="@dimen/content_side_padding"
+          android:layout_marginBottom="14dp"
+          android:layout_marginTop="16dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/name_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/name"
+            android:textSize="16sp"
+            android:paddingBottom="16dp"
+            android:inputType="text"
+            android:singleLine="true"
+        />
+
+      </android.support.design.widget.TextInputLayout>
+
+      <android.support.design.widget.TextInputLayout
+          android:id="@+id/last_name_input_layout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="@dimen/content_side_padding"
+          android:layout_marginRight="@dimen/content_side_padding"
+          android:layout_marginBottom="14dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/last_name_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/last_name"
+            android:textSize="16sp"
+            android:paddingBottom="16dp"
+            android:inputType="text"
+            android:singleLine="true"
+        />
+
+      </android.support.design.widget.TextInputLayout>
+
+      <android.support.design.widget.TextInputLayout
+          android:id="@+id/login_input_layout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="@dimen/content_side_padding"
+          android:layout_marginRight="@dimen/content_side_padding"
+          android:layout_marginBottom="14dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/login_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:textSize="16sp"
+            android:paddingBottom="16dp"
+            android:inputType="textEmailAddress"
+            android:singleLine="true"
+        />
+
+      </android.support.design.widget.TextInputLayout>
+
+      <android.support.design.widget.TextInputLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="@dimen/content_side_padding"
+          android:layout_marginRight="@dimen/content_side_padding">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/password_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:textSize="16sp"
+            android:paddingBottom="16dp"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:paddingEnd="26dp"
+        />
+
+      </android.support.design.widget.TextInputLayout>
+
+      <android.support.v7.widget.AppCompatButton
+          android:id="@+id/signup_button"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="@string/signup"
+          android:layout_marginLeft="@dimen/content_side_padding"
+          android:layout_marginRight="@dimen/content_side_padding"
+          android:layout_marginTop="23dp"
+          app:backgroundTint="@color/tangerine"
+          android:textColor="@color/white"
+          android:padding="10dp"
+      />
+
+      <android.support.v7.widget.AppCompatButton
+          android:id="@+id/cancel_button"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="@string/go_back"
+          android:layout_marginLeft="@dimen/content_side_padding"
+          android:layout_marginRight="@dimen/content_side_padding"
+          app:backgroundTint="@color/white"
+          android:textColor="@color/greyish_brown"
+          android:padding="10dp"
+      />
+
+    </LinearLayout>
+  </ScrollView>
+</layout>

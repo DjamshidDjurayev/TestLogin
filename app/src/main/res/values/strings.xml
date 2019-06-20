@@ -1,0 +1,20 @@
+<resources>
+  <string name="app_name">TestLogin</string>
+  <string name="login">Войти</string>
+  <string name="authorization">Авторизация</string>
+  <string name="create">Создать</string>
+  <string name="email">Электронная почта</string>
+  <string name="password">Пароль</string>
+  <string name="wrong_email">Неверная почта</string>
+  <string name="short_password">Пароль должен содержать как минимум 6 символов</string>
+  <string name="password_rule">Пароль должен содержать как минимум 6 символов, 1 строчную, 1 заглавную, и 1
+    цифру
+  </string>
+  <string name="empty_field">Поле не может быть пустым</string>
+  <string name="loading_wait">Загружается, ждите</string>
+  <string name="name">Ваше имя</string>
+  <string name="last_name">Ваша фамилия</string>
+  <string name="signup">Зарегистрироваться</string>
+  <string name="go_back">Вернуться назад</string>
+  <string name="registration">Регистрация</string>
+</resources>
