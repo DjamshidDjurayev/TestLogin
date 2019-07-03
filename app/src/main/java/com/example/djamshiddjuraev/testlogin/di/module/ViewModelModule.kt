@@ -8,7 +8,7 @@ import android.arch.lifecycle.ViewModelProvider
 import com.example.djamshiddjuraev.testlogin.di.ViewModelFactory
 import com.example.djamshiddjuraev.testlogin.di.ViewModelKey
 import com.example.djamshiddjuraev.testlogin.ui.login.LoginViewModel
-import com.example.djamshiddjuraev.testlogin.ui.signup.SignUpViewModel
+import com.example.djamshiddjuraev.testlogin.ui.registration.RegistrationViewModel
 
 @Module
 abstract class ViewModelModule {
@@ -19,8 +19,8 @@ abstract class ViewModelModule {
 
   @Binds
   @IntoMap
-  @ViewModelKey(SignUpViewModel::class)
-  internal abstract fun bindSignUpViewModel(signUpViewModel: SignUpViewModel): ViewModel
+  @ViewModelKey(RegistrationViewModel::class)
+  internal abstract fun bindSignUpViewModel(registrationViewModel: RegistrationViewModel): ViewModel
 
   @Binds
   internal abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

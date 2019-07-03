@@ -35,7 +35,6 @@ class Utils {
       } catch (e: Exception) {
         e.printStackTrace()
       }
-
     }
   }
 }

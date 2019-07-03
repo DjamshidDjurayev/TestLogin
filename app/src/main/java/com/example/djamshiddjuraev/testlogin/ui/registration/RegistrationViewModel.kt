@@ -1,4 +1,4 @@
-package com.example.djamshiddjuraev.testlogin.ui.signup
+package com.example.djamshiddjuraev.testlogin.ui.registration
 
 import com.example.djamshiddjuraev.testlogin.data.repository.SignUpRepository
 import com.example.djamshiddjuraev.testlogin.ui.base.BaseViewModel
@@ -7,7 +7,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-open class SignUpViewModel @Inject constructor(private val signUpRepository: SignUpRepository) : BaseViewModel<SignUpRouter>() {
+open class RegistrationViewModel @Inject constructor(private val signUpRepository: SignUpRepository) : BaseViewModel<RegistrationRouter>() {
 
   fun signUp(login: String, password: String) {
     getRouter().showLoading()

@@ -1,8 +1,6 @@
-package com.example.djamshiddjuraev.testlogin.ui.signup
+package com.example.djamshiddjuraev.testlogin.ui.registration
 
 import android.app.Activity
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
@@ -12,14 +10,8 @@ import com.example.djamshiddjuraev.testlogin.R
 import com.example.djamshiddjuraev.testlogin.data.model.Login
 import com.example.djamshiddjuraev.testlogin.databinding.ActivitySignupBinding
 import com.example.djamshiddjuraev.testlogin.ui.base.BaseActivity
-import javax.inject.Inject
 
-class SignUpActivity: BaseActivity<ActivitySignupBinding>(), SignUpRouter, View.OnClickListener {
-
-  @Inject
-  lateinit var modelFactory: ViewModelProvider.Factory
-
-  private lateinit var signUpViewModel: SignUpViewModel
+class RegistrationActivity: BaseActivity<ActivitySignupBinding, RegistrationViewModel>(), RegistrationRouter, View.OnClickListener {
 
   override fun getLayoutId(): Int = R.layout.activity_signup
 
@@ -31,8 +23,7 @@ class SignUpActivity: BaseActivity<ActivitySignupBinding>(), SignUpRouter, View.
     super.onCreate(savedInstanceState)
     createComponent().inject(this)
 
-    signUpViewModel = ViewModelProviders.of(this, modelFactory)[SignUpViewModel::class.java]
-    signUpViewModel.setRouter(this)
+    getViewModel().setRouter(this)
 
     getDataBinding().cancelButton.setOnClickListener(this)
     getDataBinding().signupButton.setOnClickListener(this)
@@ -67,7 +58,7 @@ class SignUpActivity: BaseActivity<ActivitySignupBinding>(), SignUpRouter, View.
     when(v?.id) {
       R.id.signup_button -> {
         getDataBinding().signupButton.isEnabled = false
-        signUpViewModel.signUp("test", "test")
+        getViewModel().signUp("test", "test")
       }
 
       R.id.cancel_button -> finish()

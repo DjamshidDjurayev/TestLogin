@@ -1,10 +1,7 @@
 package com.example.djamshiddjuraev.testlogin.ui.login
 
 import android.app.Activity
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.Toolbar
@@ -18,16 +15,11 @@ import com.example.djamshiddjuraev.testlogin.REGISTRATION_STEP_REQUEST
 import com.example.djamshiddjuraev.testlogin.data.model.Login
 import com.example.djamshiddjuraev.testlogin.databinding.ActivityLoginBinding
 import com.example.djamshiddjuraev.testlogin.ui.base.BaseActivity
-import com.example.djamshiddjuraev.testlogin.ui.signup.SignUpActivity
+import com.example.djamshiddjuraev.testlogin.ui.registration.RegistrationActivity
 import com.example.djamshiddjuraev.testlogin.utils.CustomPasswordTransformationMethod
 import com.example.djamshiddjuraev.testlogin.utils.Utils
-import javax.inject.Inject
 
-class LoginActivity : BaseActivity<ActivityLoginBinding>(), LoginRouter, View.OnClickListener {
-
-  @Inject lateinit var modelFactory: ViewModelProvider.Factory
-
-  private lateinit var loginViewModel: LoginViewModel
+class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(), LoginRouter, View.OnClickListener {
 
   override fun getLayoutId(): Int = R.layout.activity_login
 
@@ -39,8 +31,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(), LoginRouter, View.On
     super.onCreate(savedInstanceState)
     createComponent().inject(this)
 
-    loginViewModel = ViewModelProviders.of(this, modelFactory)[LoginViewModel::class.java]
-    loginViewModel.setRouter(this)
+    getViewModel().setRouter(this)
 
     getDataBinding().loginButton.setOnClickListener(this)
     getDataBinding().question.setOnClickListener(this)
@@ -51,7 +42,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(), LoginRouter, View.On
     if (item?.itemId == android.R.id.home) {
       finish()
     } else if (item?.itemId == R.id.create_item) {
-      val intent = Intent(this, SignUpActivity::class.java)
+      val intent = Intent(this, RegistrationActivity::class.java)
       startActivityForResult(intent, REGISTRATION_STEP_REQUEST)
     }
     return super.onOptionsItemSelected(item)
@@ -100,7 +91,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(), LoginRouter, View.On
       R.id.login_button -> {
         if (fieldsCorrect()) {
           getDataBinding().loginButton.isEnabled = false
-          loginViewModel.makeLogin(
+          getViewModel().makeLogin(
               getDataBinding().loginInput.text.toString(),
               getDataBinding().passwordInput.text.toString())
           Utils.hideKeyboard(currentFocus)
